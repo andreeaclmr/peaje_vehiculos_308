@@ -1,0 +1,59 @@
+@startuml
+
+package "org.example.Vehicle" {
+    abstract class Vehicle {
+        - plateNumber: String
+        + Vehicle(plateNumber: String)
+        + getTollAmount(): int
+        + getPlateNumber(): String
+    }
+}
+
+package "org.example.Car" {
+    class Car {
+        + Car(plateNumber: String)
+        + getTollAmount(): int
+    }
+}
+
+package "org.example.Motorcycle" {
+    class Motorcycle {
+        + Motorcycle(plateNumber: String)
+        + getTollAmount(): int
+    }
+}
+
+package "org.example.Truck" {
+    class Truck {
+        - axles: int
+        + Truck(plateNumber: String, axles: int)
+        + getTollAmount(): int
+    }
+}
+
+package "org.example.TollStation" {
+    class TollStation {
+        - name: String
+        - city: String
+        - totalCollected: int
+        - vehicles: List<Vehicle>
+        + TollStation(name: String, city: String)
+        + addVehicle(vehicle: Vehicle): void
+        + printReport(): void
+        + getTotalCollected(): int
+    }
+}
+
+package "org.example" {
+    class TollSystem {
+        + main(args: String[]): void
+    }
+}
+
+' Relationships
+Vehicle <|-- Car
+Vehicle <|-- Motorcycle
+Vehicle <|-- Truck
+TollStation --> "1..*" Vehicle
+
+@enduml
