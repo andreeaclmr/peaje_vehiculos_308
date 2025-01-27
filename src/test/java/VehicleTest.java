@@ -25,6 +25,10 @@ public class VehicleTest {
         assertEquals(200, truck.getTollAmount());
     }
 
-
+    @Test
+    public void testVehiclePlateNumber() {
+        Car car = new Car("PLATE001");
+        assertEquals("PLATE001", car.getPlateNumber());
+    }
 
 }
