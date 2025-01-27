@@ -30,5 +30,9 @@ public class TollStation {
         }
         System.out.println("Total collected: $" + totalCollected);
     }
+
+    public int getTotalCollected() {
+        return totalCollected;
+    }
 }
 
