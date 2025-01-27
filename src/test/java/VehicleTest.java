@@ -1,5 +1,6 @@
 import org.example.Car.Car;
 import org.example.Motorcycle.Motorcycle;
+import org.example.Truck.Truck;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,4 +18,13 @@ public class VehicleTest {
         Motorcycle motorcycle = new Motorcycle("BIKE456");
         assertEquals(50, motorcycle.getTollAmount());
     }
+
+    @Test
+    public void testTruckTollAmount() {
+        Truck truck = new Truck("TRUCK789", 4);  // 4 axles = $200
+        assertEquals(200, truck.getTollAmount());
+    }
+
+
+
 }
