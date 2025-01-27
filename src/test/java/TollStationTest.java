@@ -39,4 +39,13 @@ public class TollStationTest {
         assertEquals(150, station.getTotalCollected());
     }
 
+    @Test
+    public void testMultipleVehicles() {
+        TollStation station = new TollStation("Main Street", "New York");
+        station.addVehicle(new Car("ABC123"));
+        station.addVehicle(new Motorcycle("XYZ789"));
+        station.addVehicle(new Truck("LMN456", 2));
+
+        assertEquals(100 + 50 + 100, station.getTotalCollected()); // 250 total
+    }
 }
